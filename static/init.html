@@ -14,120 +14,33 @@
 
 	<link href="css/app.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
+	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+	<link href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" rel="stylesheet" />
+
+	<style>
+		#map {
+			width: 100%;
+			height: 500px;
+		}
+
+
+
+		input[type="checkbox"] {
+			display: none;
+		}
+
+		input[type="checkbox"]:checked+label {
+			border: 3px solid red;
+		}
+	</style>
 </head>
 
 <body>
 	<div class="wrapper">
-		<nav id="sidebar" class="sidebar js-sidebar">
-			<div class="sidebar-content js-simplebar">
-				<a class="sidebar-brand" href="index.html">
-					<span class="align-middle">Smart Bio Windows Dashboard</span>
-				</a>
-
-				<ul class="sidebar-nav">
-					<li class="sidebar-header">
-						Pages
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="index.html">
-							<i class="align-middle" data-feather="sliders"></i> <span
-								class="align-middle">Dashboard</span>
-						</a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-profile.html">
-							<i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
-						</a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-sign-in.html">
-							<i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Sign In</span>
-						</a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-sign-up.html">
-							<i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Sign
-								Up</span>
-						</a>
-					</li>
-
-					<li class="sidebar-item active">
-						<a class="sidebar-link" href="pages-blank.html">
-							<i class="align-middle" data-feather="book"></i> <span class="align-middle">Blank</span>
-						</a>
-					</li>
-
-					<li class="sidebar-header">
-						Tools & Components
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-buttons.html">
-							<i class="align-middle" data-feather="square"></i> <span class="align-middle">Buttons</span>
-						</a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-forms.html">
-							<i class="align-middle" data-feather="check-square"></i> <span
-								class="align-middle">Forms</span>
-						</a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-cards.html">
-							<i class="align-middle" data-feather="grid"></i> <span class="align-middle">Cards</span>
-						</a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-typography.html">
-							<i class="align-middle" data-feather="align-left"></i> <span
-								class="align-middle">Typography</span>
-						</a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="icons-feather.html">
-							<i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Icons</span>
-						</a>
-					</li>
-
-					<li class="sidebar-header">
-						Plugins & Addons
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="charts-chartjs.html">
-							<i class="align-middle" data-feather="bar-chart-2"></i> <span
-								class="align-middle">Charts</span>
-						</a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="maps-google.html">
-							<i class="align-middle" data-feather="map"></i> <span class="align-middle">Maps</span>
-						</a>
-					</li>
-				</ul>
-
-				<div class="sidebar-cta">
-					<div class="sidebar-cta-content">
-						<strong class="d-inline-block mb-2">Upgrade to Pro</strong>
-						<div class="mb-3 text-sm">
-							Are you looking for more components? Check out our premium version.
-						</div>
-						<div class="d-grid">
-							<a href="upgrade-to-pro.html" class="btn btn-primary">Upgrade to Pro</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</nav>
 
 		<div class="main">
 			<nav class="navbar navbar-expand navbar-light navbar-bg">
@@ -238,15 +151,59 @@
 			<main class="content">
 				<div class="container-fluid p-0">
 
-					<h1 class="h3 mb-3">Blank Page</h1>
+					<div class="text-center">
+						<h1 class="h3 mb-3">Welcome to your <strong>SMART BIO WINDOWS</strong> Dashboard</h1>
+						<p>
+							Since this is your first visit, Please Configure the app to fit your needs
+						</p>
+					</div>
 
-					<div class="row">
-						<div class="col-12">
+					<div class="row justify-content-center p-4">
+						<div class="col-md-9 col-sm-12">
 							<div class="card">
 								<div class="card-header">
-									<h5 class="card-title mb-0">Empty card</h5>
+									<h5 class="card-title mb-0">Step 1</h5>
 								</div>
 								<div class="card-body">
+									<form id="form1">
+										<select id="industry" class="form-control mb-3" required>
+											<option value="">Open this select menu</option>
+											<option value="1">Energy</option>
+											<option value="2">Two</option>
+											<option value="3">Three</option>
+										</select>
+										<div id="map"></div>
+										<p class="text-center mt-3">
+											<button class="btn btn-primary">Next</button>
+										</p>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row justify-content-center p-4">
+						<div class="col-md-9 col-sm-12">
+							<div class="card">
+								<div class="card-header">
+									<h5 class="card-title mb-0">Step 2</h5>
+								</div>
+								<div class="card-body text-center">
+									<h2 class="h3 mb-3">Recommendation</h2>
+									<p>
+										We found that this species of micro-algae is the best for your usecase
+									</p>
+									<form id="form2">
+										<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkUcdrRHNNqQg1v7s0y4u4BXxpV3l7aHiGHg&usqp=CAU"
+											alt="p1">
+
+										<select id="specie" class="form-control mb-3 w-75" required>
+											<option value="">Select the species you prefer otherwise</option>
+											<option value="1">s1</option>
+											<option value="2">s2</option>
+											<option value="3">s3</option>
+										</select>
+									</form>
 								</div>
 							</div>
 						</div>
@@ -260,25 +217,22 @@
 					<div class="row text-muted">
 						<div class="col-6 text-start">
 							<p class="mb-0">
-								<a class="text-muted" href="https://adminkit.io/"
-									target="_blank"><strong>AdminKit</strong></a> - <a class="text-muted"
-									href="https://adminkit.io/" target="_blank"><strong>Bootstrap Admin
-										Template</strong></a> &copy;
+								<strong>SBW</strong> - <strong>Smart Bio Windows</strong> &copy;
 							</p>
 						</div>
 						<div class="col-6 text-end">
 							<ul class="list-inline">
 								<li class="list-inline-item">
-									<a class="text-muted" href="https://adminkit.io/" target="_blank">Support</a>
+									<a class="text-muted" href="#" target="_blank">Support</a>
 								</li>
 								<li class="list-inline-item">
-									<a class="text-muted" href="https://adminkit.io/" target="_blank">Help Center</a>
+									<a class="text-muted" href="#" target="_blank">Help Center</a>
 								</li>
 								<li class="list-inline-item">
-									<a class="text-muted" href="https://adminkit.io/" target="_blank">Privacy</a>
+									<a class="text-muted" href="#" target="_blank">Privacy</a>
 								</li>
 								<li class="list-inline-item">
-									<a class="text-muted" href="https://adminkit.io/" target="_blank">Terms</a>
+									<a class="text-muted" href="#" target="_blank">Terms</a>
 								</li>
 							</ul>
 						</div>
@@ -290,6 +244,45 @@
 
 	<script src="js/app.js"></script>
 
+	<script>
+		let map = L.map('map').setView([31.7311694, -6.8968674], 6);
+		let waypoint = []
+		let marker = new L.marker({ lat: 33.030944, lng: -7.616526 })
+
+		map.on('click', addMarker);
+
+		function addMarker(e) {
+			map.removeLayer(marker)
+			waypoint = [e.latlng.lat, e.latlng.lng]
+			marker = new L.marker(e.latlng);
+			map.addLayer(marker)
+		}
+
+		mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+		L.tileLayer('https://{s}.tile.jawg.io/jawg-terrain/{z}/{x}/{y}{r}.png?access-token={accessToken}', {
+			attribution: '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+			minZoom: 0,
+			maxZoom: 22,
+			subdomains: 'abcd',
+			accessToken: '9TJptUaXagFBxziNfQljuQK0CnrmyfzSbQtC4KCA8XV1xkw5ViifRT7LOeESyhnR'
+		}).addTo(map);
+
+
+		document.querySelector("#form1").addEventListener('submit', e => {
+			e.preventDefault()
+			const industry = document.querySelector("#industry").value
+
+			axios.get(`https://api.open-meteo.com/v1/forecast?latitude=${waypoint[0]}&longitude=${waypoint[1]}&hourly=relativehumidity_2m,pressure_msl,surface_pressure,temperature_180m`)
+				.then(function (response) {
+					const data = response.data
+				})
+				.catch(function (error) {
+					console.log(error);
+				});
+		});
+
+
+	</script>
 </body>
 
 </html>
