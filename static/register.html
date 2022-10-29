@@ -6,16 +6,16 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
-	<meta name="author" content="AdminKit">
+	<meta name="author" content="sbw">
 	<meta name="keywords"
-		content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+		content="sbw, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
 
-	<link rel="canonical" href="https://demo-basic.adminkit.io/pages-sign-up.html" />
+	<link rel="canonical" href="https://demo-basic.sbw.io/pages-sign-up.html" />
 
-	<title>Sign Up | AdminKit Demo</title>
+	<title>Sign Up | sbw Demo</title>
 
 	<link href="css/app.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -41,13 +41,13 @@
 							<div class="card mb-0">
 								<div class="card-body p-0">
 									<div class="text-center mt-4">
-										<h1 class="h2">Get started</h1>
+										<h1 class="h2">Get Started</h1>
 										<p class="lead">
 											Create your accound to get the best recommendations!
 										</p>
 									</div>
 									<div class="m-sm-4">
-										<form>
+										<form action="step1.html" method="get">
 											<div class="mb-3">
 												<label class="form-label">Company</label>
 												<input class="form-control form-control-lg" type="text" name="company"
@@ -60,17 +60,17 @@
 											</div>
 											<div class="mb-3">
 												<label class="form-label">Activity Sector</label>
-												<select id="industry" class="form-control mb-3" required>
+												<select id="industry" name="industry" class="form-control mb-3" required>
 													<option value="">Select Your sector</option>
-													<option value="1">Energy</option>
+													<!-- <option value="1">Energy</option>
 													<option value="2">test</option>
-													<option value="3">test</option>
+													<option value="3">test</option> -->
 												</select>
 											</div>
 											<div class="mb-3">
 												<label class="form-label">Country</label>
 												<select id="country" class="form-control mb-3" name="country">
-													<option>select country</option>
+													<option>Select country</option>
 													<option value="AF">Afghanistan</option>
 													<option value="AX">Aland Islands</option>
 													<option value="AL">Albania</option>
@@ -333,8 +333,9 @@
 													name="password" placeholder="Enter password" />
 											</div>
 											<div class="text-center mt-3">
-												<a href="index.html" class="btn btn-lg btn-success">Sign up</a>
-												<!-- <button type="submit" class="btn btn-lg btn-primary">Sign up</button> -->
+												<a href="login.html" class="text-primary"
+													style="margin-right: 15px;">Login Instead</a>
+												<button type="submit" class="btn btn-lg btn-success">Sign up</a>
 											</div>
 										</form>
 									</div>
@@ -349,6 +350,22 @@
 	</main>
 
 	<script src="js/app.js"></script>
+
+	<script>
+		fetch('http://192.168.27.218:5000/industries')
+			.then((response) => response.json())
+			.then((data) => {
+
+				for (var i = 0; i < data.length; i++) {
+					var opt = data[i].Industry;
+					console.log(opt)
+					var el = document.createElement("option");
+					el.textContent = opt;
+					el.value = opt;
+					document.querySelector("#industry").appendChild(el);
+				}
+			});
+	</script>
 
 </body>
 
