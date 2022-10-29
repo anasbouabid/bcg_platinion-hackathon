@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="TEAM 3 - Hackathon BCG Platinion">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+
+	<title>Smart Bio Windows - Dashboard</title>
+
+	<link href="css/app.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+		integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	
+	<style>
+		/* The Modal (background) */
+		.modal {
+			display: none;
+			/* Hidden by default */
+			position: fixed;
+			/* Stay in place */
+			z-index: 1;
+			/* Sit on top */
+			padding-top: 10px;
+			/* Location of the box */
+			left: 0;
+			top: 0;
+			width: 100%;
+			/* Full width */
+			height: 100%;
+			/* Full height */
+			overflow: auto;
+			/* Enable scroll if needed */
+			background-color: rgb(0, 0, 0);
+			/* Fallback color */
+			background-color: rgba(0, 0, 0, 0.4);
+			/* Black w/ opacity */
+		}
+
+		/* Modal Content */
+		.modal-content {
+			background-color: #fefefe;
+			margin: auto;
+			padding: 20px;
+			border: 1px solid #888;
+			width: 50%;
+			border-radius: 7px;
+			position: relative;
+		}
+
+		/* The Close Button */
+		.close {
+			color: #aaaaaa;
+			font-size: 28px;
+			font-weight: bold;
+			position: absolute;
+			right: 10px;
+			top: 2px;
+		}
+
+		.close:hover,
+		.close:focus {
+			color: #000;
+			text-decoration: none;
+			cursor: pointer;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<nav id="sidebar" class="sidebar js-sidebar">
+			<div class="sidebar-content js-simplebar">
+				<a class="sidebar-brand" href="index.html">
+					<span class="align-middle">Smart Bio Windows Dashboard</span>
+				</a>
+
+				<ul class="sidebar-nav">
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="index.html">
+							<i class="align-middle" data-feather="sliders"></i> <span
+								class="align-middle">Dashboard</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="pages-profile.html">
+							<i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="pages-sign-in.html">
+							<i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Sign In</span>
+						</a>
+					</li>
+
+					<li class="sidebar-header">
+						Plugins & Addons
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="charts-chartjs.html">
+							<i class="align-middle" data-feather="bar-chart-2"></i> <span
+								class="align-middle">Charts</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="maps-google.html">
+							<i class="align-middle" data-feather="map"></i> <span class="align-middle">Maps</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="main">
+			<nav class="navbar navbar-expand navbar-light navbar-bg">
+				<a class="sidebar-toggle js-sidebar-toggle">
+					<i class="hamburger align-self-center"></i>
+				</a>
+
+				<div class="navbar-collapse collapse">
+					<ul class="navbar-nav navbar-align">
+						<li class="nav-item dropdown">
+							<a class="nav-icon dropdown-toggle" href="#" id="alertsDropdown" data-bs-toggle="dropdown">
+								<div class="position-relative">
+									<i class="align-middle" data-feather="bell"></i>
+									<span class="indicator">4</span>
+								</div>
+							</a>
+							<div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0"
+								aria-labelledby="alertsDropdown">
+								<div class="dropdown-menu-header">
+									4 New Notifications
+								</div>
+								<div class="list-group">
+									<a href="#" class="list-group-item">
+										<div class="row g-0 align-items-center">
+											<div class="col-2">
+												<i class="text-danger" data-feather="alert-circle"></i>
+											</div>
+											<div class="col-10">
+												<div class="text-dark">Update completed</div>
+												<div class="text-muted small mt-1">Restart server 12 to complete the
+													update.</div>
+												<div class="text-muted small mt-1">30m ago</div>
+											</div>
+										</div>
+									</a>
+									<a href="#" class="list-group-item">
+										<div class="row g-0 align-items-center">
+											<div class="col-2">
+												<i class="text-warning" data-feather="bell"></i>
+											</div>
+											<div class="col-10">
+												<div class="text-dark">Lorem ipsum</div>
+												<div class="text-muted small mt-1">Aliquam ex eros, imperdiet vulputate
+													hendrerit et.</div>
+												<div class="text-muted small mt-1">2h ago</div>
+											</div>
+										</div>
+									</a>
+									<a href="#" class="list-group-item">
+										<div class="row g-0 align-items-center">
+											<div class="col-2">
+												<i class="text-primary" data-feather="home"></i>
+											</div>
+											<div class="col-10">
+												<div class="text-dark">Login from 192.186.1.8</div>
+												<div class="text-muted small mt-1">5h ago</div>
+											</div>
+										</div>
+									</a>
+									<a href="#" class="list-group-item">
+										<div class="row g-0 align-items-center">
+											<div class="col-2">
+												<i class="text-success" data-feather="user-plus"></i>
+											</div>
+											<div class="col-10">
+												<div class="text-dark">New connection</div>
+												<div class="text-muted small mt-1">Christina accepted your request.
+												</div>
+												<div class="text-muted small mt-1">14h ago</div>
+											</div>
+										</div>
+									</a>
+								</div>
+								<div class="dropdown-menu-footer">
+									<a href="#" class="text-muted">Show all notifications</a>
+								</div>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#"
+								data-bs-toggle="dropdown">
+								<i class="align-middle" data-feather="settings"></i>
+							</a>
+
+							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#"
+								data-bs-toggle="dropdown">
+								<img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1"
+									alt="Anas BOUABID" /> <span class="text-dark">Anas BOUABID</span>
+							</a>
+							<div class="dropdown-menu dropdown-menu-end">
+								<a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1"
+										data-feather="user"></i> Profile</a>
+								<a class="dropdown-item" href="#"><i class="align-middle me-1"
+										data-feather="pie-chart"></i> Analytics</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="index.html"><i class="align-middle me-1"
+										data-feather="settings"></i> Settings & Privacy</a>
+								<a class="dropdown-item" href="#"><i class="align-middle me-1"
+										data-feather="help-circle"></i> Help Center</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#">Log out</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</nav>
+
+			<main class="content">
+				<div class="container-fluid p-0">
+					<h2 class="h2 mb-4">For the sector of {the selected sector}, we recommend the
+						following species</h2>
+
+					<h4 class="mb-4">You can configure the settings manually
+						as well as select a desired species directly
+						<button type="button" class="btn btn-primary" id="myBtn">
+							<i class="fa-solid fa-user-pen"></i> Manual Settings
+						</button>
+					</h4>
+
+					<div class="row">
+						<div class="col-12">
+							<div class="card">
+								<div class="card-body">
+									<div class="row align-items-stretch">
+										<div class="col-3">
+											<img class="w-100 rounded"
+												src="https://www.dalton-cosmetics.com/media/wysiwyg/Dalton-Meereskosmetik-Wirkstoffe-Mikroalgen.jpg"
+												alt="microalgae species">
+										</div>
+										<div class="col-9 d-flex flex-column justify-content-between">
+											<div>
+												<h3 class="text-success">Main caracteristics</h3>
+												<ul>
+													<li>Lorem, ipsum dolor sit amet consectetur adipisicing elit amet
+														consectetur adipisicing elit.</li>
+													<li>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</li>
+													<li>Lorem, ipsum dolor sit amet consectetur adipisicing elit
+														adipisicing elit.</li>
+													<li>Lorem, ipsum dolor sit amet consectetur adipisicing elit amet
+														consectetur adipisicing elit.</li>
+													<li>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</li>
+													<li>Lorem, ipsum dolor sit amet consectetur adipisicing elit
+														adipisicing elit.</li>
+												</ul>
+											</div>
+
+											<div style="text-align: right">
+												<button class="btn btn-success">Validate</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="card">
+								<div class="card-body">
+									<div class="row align-items-stretch">
+										<div class="col-3">
+											<img class="w-100 rounded"
+												src="https://www.dalton-cosmetics.com/media/wysiwyg/Dalton-Meereskosmetik-Wirkstoffe-Mikroalgen.jpg"
+												alt="microalgae species">
+										</div>
+										<div class="col-9 d-flex flex-column justify-content-between">
+											<div>
+												<h3 class="text-success">Main caracteristics</h3>
+												<ul>
+													<li>Lorem, ipsum dolor sit amet consectetur adipisicing elit amet
+														consectetur adipisicing elit.</li>
+													<li>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</li>
+													<li>Lorem, ipsum dolor sit amet consectetur adipisicing elit
+														adipisicing elit.</li>
+													<li>Lorem, ipsum dolor sit amet consectetur adipisicing elit amet
+														consectetur adipisicing elit.</li>
+													<li>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</li>
+													<li>Lorem, ipsum dolor sit amet consectetur adipisicing elit
+														adipisicing elit.</li>
+												</ul>
+											</div>
+
+											<div style="text-align: right">
+												<button class="btn btn-success">Validate</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</main>
+
+			<footer class="footer">
+				<div class="container-fluid">
+					<div class="row text-muted">
+						<div class="col-6 text-start">
+							<p class="mb-0">
+								<strong>Smart Bio Window</strong> &copy;
+							</p>
+						</div>
+						<div class="col-6 text-end">
+							<ul class="list-inline">
+								<li class="list-inline-item">
+									<a class="text-muted" href="#" target="_blank">Support</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="#" target="_blank">Help Center</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="#" target="_blank">Privacy</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="#" target="_blank">Terms</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</div>
+
+
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+
+		<!-- Modal content -->
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<div class="container">
+				<form>
+					<h3 class="h3 mb-2">Provide Settings</h3>
+					<div class="row">
+						<div class="col-6">
+							<div class="mb-3">
+								<label class="form-label">Temperature (in °C)</label>
+								<input class="form-control form-control-lg" type="number" step="0.1" name="temp"
+									placeholder="Enter the temperature" />
+							</div>
+						</div>
+						<div class="col-6">
+							<div class="mb-3">
+								<label class="form-label">Pressure level (in PSI)</label>
+								<input class="form-control form-control-lg" type="number" step="0.1" name="pressure"
+									placeholder="Enter the pressure level at the installation height" />
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-6">
+							<div class="mb-3">
+								<label class="form-label">Humidity Percentage</label>
+								<input class="form-control form-control-lg" type="number" name="humidity"
+									placeholder="Enter the humidity level" />
+							</div>
+						</div>
+						<div class="col-6">
+							<div class="mb-3">
+								<label class="form-label">Desired Product Category</label>
+								<select id="category" class="form-control mb-3">
+									<option value="">Click to select Your category</option>
+									<option value="1">Cosmetics</option>
+									<option value="2">Pharma</option>
+									<option value="3">test</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<h3 class="h3 mt-3 mb-2">Select Species Directly</h3>
+					<div class="row">
+						<div class="col-12">
+							<div>
+								<label class="form-label">Select Species</label>
+								<select id="category" class="form-control mb-3">
+									<option value="">Click to select Your category</option>
+									<option value="1">Cosmetics</option>
+									<option value="2">Pharma</option>
+									<option value="3">test</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-12 text-end">
+							<button class="btn btn-success w-100">Validate</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+	</div>
+
+	<script src="js/app.js"></script>
+
+	<script>
+		// Get the modal
+		let modal = document.getElementById("myModal");
+
+		// Get the button that opens the modal
+		let btn = document.getElementById("myBtn");
+
+		// Get the <span> element that closes the modal
+		let span = document.getElementsByClassName("close")[0];
+
+		// When the user clicks the button, open the modal 
+		btn.onclick = function () {
+			modal.style.display = "block";
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function () {
+			modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function (event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+	</script>
+</body>
+
+</html>
